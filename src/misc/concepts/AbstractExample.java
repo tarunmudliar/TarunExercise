@@ -1,6 +1,7 @@
 package misc.concepts;
 
 public abstract class AbstractExample {
+	//Can have constructor
 	AbstractExample(){
 		System.out.println("In Abstract constructor");
 		
@@ -13,8 +14,7 @@ public abstract class AbstractExample {
 	}
 	//Can or cannot have abstract methods
 	abstract void nope();
-	void fill(){
-		
+	void fill(){	
 		System.out.println("Defined in abstract");
 	}
 	void genAbs(){

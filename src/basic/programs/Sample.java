@@ -7,6 +7,8 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+//Compile error
+//import misc.concepts.Sample;
 
 public class Sample {
 	

@@ -12,9 +12,9 @@ class GrandParent {
 		System.out.println("GrandParent method");
 	}
 	
-	public void GPMethod(){
+	public int GPMethod(){
 		
-		
+		return 5;
 	}
 }
 
@@ -31,7 +31,7 @@ class Parent extends GrandParent {
 	}
 
 	Parent(int i, int j) {
-		this();
+		//this();
 		System.out.println("Parametrized Parent const");
 	}
 	
@@ -67,8 +67,7 @@ class Parent extends GrandParent {
 		System.out.println("Just a method");
 	}
 	
-	//Cant access from class, only in methods
-	//GPMethod();
+	int y = GPMethod();
 
 }
 
@@ -76,26 +75,28 @@ class Child extends Parent {
 	static int st = 0;
 	static int st2 = 5;
 	int child = 0;
+	//x from Parent
 	int g = child + x;
 	//One in Parent class got hidden due to this, use super to access Parent's i
 	public int i = 5;
 
 	// Compiler will complain if super class has no "no argument" constructor
-	// Child() {
-	// super(1, 2);
-	// System.out.println("Child constructor");
-	// }
+	 //Child() {
+	 //super(1, 2);
+	 //System.out.println("Child constructor");
+	 //}
 	
 	// wont be allowed when Parent does not have a no argument constructor, 
 	//but one can bypass that by explicitly calling another Parent Constructor
 	Child(int i) {
 		//Cant call both at the same time
-		//super(1,2);
+		super(1,2);
 		//super();
 		System.out.println("Param constructor in Child");
 
 	}
-	
+	//Since constructors are not inherited, this will be treated 
+	//as just another method in Child class 
 	public void Parent(){
 		
 		System.out.println("Overriding Parent Constructor");
@@ -123,7 +124,7 @@ class Child extends Parent {
 	 * }
 	 */
 
-	@Override
+	//@Override
 	public void method() {
 		System.out.println(st);
 		System.out.println(st2);
@@ -190,6 +191,7 @@ class Inheritance {
 		// 3
 		// Not possible; type mismatch
 		// Child i = new Parent();
+		//possible
 		//Parent pt = new Child(6);
 		//Error below
 		//Child o = pt;
